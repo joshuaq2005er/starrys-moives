@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | CinemaBook Pro</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+</head>
+
+
+<body onload="loadDashboard();checkAdmin();">
+
+
+<div class="admin-layout">
+
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+
+<h2>
+🎬 CinemaBook
+</h2>
+
+
+<a href="dashboard.html">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+
+<a href="movies.html">
+<i class="fa-solid fa-film"></i>
+Movies
+</a>
+
+
+<a href="bookings.html">
+<i class="fa-solid fa-ticket"></i>
+Bookings
+</a>
+
+
+<a href="theaters.html">
+<i class="fa-solid fa-couch"></i>
+Theaters
+</a>
+
+
+<a href="concessions.html">
+<i class="fa-solid fa-popcorn"></i>
+Food
+</a>
+
+
+<a href="settings.html">
+<i class="fa-solid fa-gear"></i>
+Settings
+</a>
+
+
+
+<a onclick="logoutAdmin()"
+style="cursor:pointer">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+
+</div>
+
+
+
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+
+
+<h1>
+Admin Dashboard
+</h1>
+
+
+<br>
+
+
+
+<div class="dashboard-cards">
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-dollar-sign"></i>
+
+
+<h3>
+Revenue
+</h3>
+
+
+<span id="revenue">
+
+$0
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-ticket"></i>
+
+
+<h3>
+Bookings
+</h3>
+
+
+<span id="bookingCount">
+
+0
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-chair"></i>
+
+
+<h3>
+Seats Sold
+</h3>
+
+
+<span id="seatCount">
+
+0
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-film"></i>
+
+
+<h3>
+Movies
+</h3>
+
+
+<span id="movieCount">
+
+0
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="admin-panel">
+
+
+<h2>
+Recent Bookings
+</h2>
+
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Customer
+</th>
+
+
+<th>
+Movie
+</th>
+
+
+<th>
+Seats
+</th>
+
+
+<th>
+Total
+</th>
+
+
+<th>
+Date
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="bookingTable">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script src="../js/app.js"></script>
+
+<script src="admin.js"></script>
+
+
+
+<script>
+
+
+function loadDashboard(){
+
+
+
+let bookings =
+getBookings();
+
+
+
+let movies =
+getMovies();
+
+
+
+
+document.getElementById(
+"bookingCount"
+)
+.innerHTML =
+bookings.length;
+
+
+
+
+document.getElementById(
+"movieCount"
+)
+.innerHTML =
+movies.length;
+
+
+
+
+let seats=0;
+
+let money=0;
+
+
+
+bookings.forEach(b=>{
+
+
+seats += b.seats.length;
+
+
+
+money +=
+parseFloat(
+b.total.replace("$","")
+);
+
+
+
+});
+
+
+
+
+document.getElementById(
+"seatCount"
+)
+.innerHTML =
+seats;
+
+
+
+document.getElementById(
+"revenue"
+)
+.innerHTML =
+"$"+money;
+
+
+
+let table =
+document.getElementById(
+"bookingTable"
+);
+
+
+
+table.innerHTML="";
+
+
+
+bookings
+.slice(-10)
+.reverse()
+.forEach(b=>{
+
+
+table.innerHTML += `
+
+
+<tr>
+
+
+<td>
+${b.customer}
+</td>
+
+
+<td>
+${b.movie}
+</td>
+
+
+<td>
+${b.seats.join(",")}
+</td>
+
+
+<td>
+${b.total}
+</td>
+
+
+<td>
+${b.date}
+</td>
+
+
+</tr>
+
+
+`;
+
+
+});
+
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
