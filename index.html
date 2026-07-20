@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CinemaBook Pro</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+<i class="fa-solid fa-film"></i>
+<span>CinemaBook Pro</span>
+</div>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="movies.html">Movies</a></li>
+
+<li><a href="history.html">My Tickets</a></li>
+
+<li><a href="admin/login.html">Admin</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>
+Experience Movies Like Never Before
+</h1>
+
+<p>
+
+Book your seats in seconds,
+skip the line,
+and enjoy your favorite films
+with CinemaBook Pro.
+
+</p>
+
+<a href="movies.html" class="heroButton">
+
+Browse Movies
+
+</a>
+
+</div>
+
+</section>
+
+</header>
+
+<main>
+
+<section class="featured">
+
+<h2>
+
+🔥 Featured Movies
+
+</h2>
+
+<div class="movieGrid">
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Movie+Poster"
+alt="Movie">
+
+<h3>Superman</h3>
+
+<p>
+
+Action • 2h 18m
+
+</p>
+
+<button onclick="openMovie('Superman')">
+
+Book Now
+
+</button>
+
+</div>
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Movie+Poster"
+alt="Movie">
+
+<h3>Jurassic World</h3>
+
+<p>
+
+Adventure • 2h 12m
+
+</p>
+
+<button onclick="openMovie('Jurassic World')">
+
+Book Now
+
+</button>
+
+</div>
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Movie+Poster"
+alt="Movie">
+
+<h3>How To Train Your Dragon</h3>
+
+<p>
+
+Family • 1h 56m
+
+</p>
+
+<button onclick="openMovie('Dragon')">
+
+Book Now
+
+</button>
+
+</div>
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Movie+Poster"
+alt="Movie">
+
+<h3>Minecraft Movie</h3>
+
+<p>
+
+Adventure • 1h 41m
+
+</p>
+
+<button onclick="openMovie('Minecraft')">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="why">
+
+<h2>
+
+Why Choose CinemaBook Pro?
+
+</h2>
+
+<div class="features">
+
+<div>
+
+<i class="fa-solid fa-ticket"></i>
+
+<h3>
+
+Easy Booking
+
+</h3>
+
+<p>
+
+Reserve seats instantly.
+
+</p>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-couch"></i>
+
+<h3>
+
+Choose Your Seats
+
+</h3>
+
+<p>
+
+Interactive seating layout.
+
+</p>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-qrcode"></i>
+
+<h3>
+
+QR Tickets
+
+</h3>
+
+<p>
+
+No printing required.
+
+</p>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>
+
+Fast Check-In
+
+</h3>
+
+<p>
+
+Scan and enter.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="comingSoon">
+
+<h2>
+
+Coming Soon
+
+</h2>
+
+<div class="movieGrid">
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Coming+Soon"
+alt="Movie">
+
+<h3>
+
+Avatar 4
+
+</h3>
+
+<p>
+
+December 2026
+
+</p>
+
+</div>
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Coming+Soon"
+alt="Movie">
+
+<h3>
+
+Spider-Man
+
+</h3>
+
+<p>
+
+Coming Soon
+
+</p>
+
+</div>
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Coming+Soon"
+alt="Movie">
+
+<h3>
+
+Frozen 3
+
+</h3>
+
+<p>
+
+Coming Soon
+
+</p>
+
+</div>
+
+<div class="movieCard">
+
+<img
+src="https://placehold.co/350x500?text=Coming+Soon"
+alt="Movie">
+
+<h3>
+
+Toy Story 5
+
+</h3>
+
+<p>
+
+Coming Soon
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div>
+
+<h3>
+
+CinemaBook Pro
+
+</h3>
+
+<p>
+
+The modern way to book movie tickets.
+
+</p>
+
+</div>
+
+<div>
+
+<a href="movies.html">
+
+Movies
+
+</a>
+
+<a href="history.html">
+
+My Tickets
+
+</a>
+
+<a href="admin/login.html">
+
+Admin Panel
+
+</a>
+
+</div>
+
+<p>
+
+© 2026 CinemaBook Pro
+
+</p>
+
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
