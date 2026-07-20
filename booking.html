@@ -7,180 +7,60 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Booking | CinemaBook Pro</title>
+<title>Bookings | CinemaBook Pro</title>
 
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 
-<body>
+<body onload="checkAdmin();loadBookings();">
 
 
-<nav class="navbar">
-
-
-<div class="logo">
-
-<i class="fa-solid fa-film"></i>
-
-CinemaBook Pro
-
-</div>
-
-
-<ul>
-
-<li>
-<a href="index.html">
-Home
-</a>
-</li>
-
-
-<li>
-<a href="movies.html">
-Movies
-</a>
-</li>
-
-</ul>
-
-
-</nav>
+<div class="admin-layout">
 
 
 
-<section class="booking-container">
+<div class="sidebar">
 
-
-<div class="booking-panel">
-
-
-<h2 id="movieTitle">
-
-Movie Booking
-
+<h2>
+🎬 CinemaBook
 </h2>
 
 
-
-<div class="form-group">
-
-<label>
-Select Theater
-</label>
+<a href="dashboard.html">
+Dashboard
+</a>
 
 
-<select id="theater">
-
-<option value="1">
-Theater 1
-</option>
+<a href="movies.html">
+Movies
+</a>
 
 
-<option value="2">
-Theater 2
-</option>
+<a href="bookings.html">
+Bookings
+</a>
 
 
-</select>
+<a href="theaters.html">
+Theaters
+</a>
 
 
-</div>
+<a href="concessions.html">
+Food
+</a>
 
 
-
-<div class="form-group">
-
-<label>
-Show Time
-</label>
+<a href="settings.html">
+Settings
+</a>
 
 
-<select id="showtime">
-
-<option>
-10:00 AM
-</option>
-
-<option>
-1:30 PM
-</option>
-
-<option>
-4:00 PM
-</option>
-
-<option>
-7:30 PM
-</option>
-
-<option>
-10:00 PM
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-<div class="screen">
-
-SCREEN
-
-</div>
-
-
-
-
-<div class="legend">
-
-
-<div class="legend-item">
-
-<div class="legend-box"
-style="background:#374151">
-
-</div>
-
-Available
-
-</div>
-
-
-
-<div class="legend-item">
-
-<div class="legend-box"
-style="background:#22c55e">
-
-</div>
-
-Selected
-
-</div>
-
-
-
-<div class="legend-item">
-
-<div class="legend-box"
-style="background:#ef4444">
-
-</div>
-
-Booked
-
-</div>
+<a onclick="logoutAdmin()">
+Logout
+</a>
 
 
 </div>
@@ -188,86 +68,287 @@ Booked
 
 
 
-<div class="seat-grid"
-id="seatGrid">
 
-</div>
+<div class="dashboard">
+
+
+<h1>
+🎟️ Booking Management
+</h1>
 
 
 
 <div class="admin-panel">
 
 
-<h3>
-
-Booking Information
-
-</h3>
-
-
-<div class="form-group">
-
-<label>
-Customer Name
-</label>
-
-
-<input 
-id="customerName"
-placeholder="Enter your name">
-
-</div>
-
-
-
-
-<h3>
-
-Food & Drinks
-
-</h3>
-
-
-<div id="foodList">
-
-</div>
-
-
-
 <h2>
-
-Total:
-<span id="total">
-
-$0
-
-</span>
-
+All Bookings
 </h2>
 
 
 
-<button class="primary-btn"
-onclick="completeBooking()">
+<div class="table-container">
 
-Confirm Booking
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Customer
+</th>
+
+<th>
+Movie
+</th>
+
+<th>
+Theater
+</th>
+
+<th>
+Showtime
+</th>
+
+<th>
+Seats
+</th>
+
+<th>
+Total
+</th>
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="bookingList">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script src="../js/app.js"></script>
+
+<script src="admin.js"></script>
+
+
+
+<script>
+
+
+function loadBookings(){
+
+
+let bookings =
+getBookings();
+
+
+
+let table =
+document.getElementById(
+"bookingList"
+);
+
+
+
+table.innerHTML="";
+
+
+
+if(bookings.length===0){
+
+
+table.innerHTML=
+
+`
+<tr>
+
+<td colspan="7">
+
+No bookings found
+
+</td>
+
+</tr>
+`;
+
+return;
+
+
+}
+
+
+
+
+bookings
+.slice()
+.reverse()
+.forEach((booking,index)=>{
+
+
+table.innerHTML += `
+
+
+<tr>
+
+
+<td>
+
+${booking.customer}
+
+</td>
+
+
+
+<td>
+
+${booking.movie}
+
+</td>
+
+
+
+<td>
+
+Theater ${booking.theater}
+
+</td>
+
+
+
+<td>
+
+${booking.showtime}
+
+</td>
+
+
+
+<td>
+
+${booking.seats.join(", ")}
+
+</td>
+
+
+
+<td>
+
+${booking.total}
+
+</td>
+
+
+
+<td>
+
+
+<button 
+class="delete-btn"
+onclick="deleteBooking(${booking.id})">
+
+Refund
 
 </button>
 
 
-</div>
-
-
-</div>
-
-
-</section>
+</td>
 
 
 
-<script src="js/app.js"></script>
+</tr>
 
-<script src="js/booking.js"></script>
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+function deleteBooking(id){
+
+
+if(!confirm(
+"Refund this booking?"
+))
+
+return;
+
+
+
+let bookings =
+getBookings();
+
+
+
+bookings =
+bookings.filter(
+b=>b.id!==id
+);
+
+
+
+localStorage.setItem(
+
+"bookings",
+
+JSON.stringify(bookings)
+
+);
+
+
+
+alert(
+"Booking refunded"
+);
+
+
+
+loadBookings();
+
+
+
+}
+
+
+
+</script>
 
 
 </body>
