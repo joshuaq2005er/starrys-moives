@@ -1,0 +1,1418 @@
+/* ==========================================
+   CinemaBook Pro
+   Global Styles
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0d1117;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#3b82f6;
+}
+
+/* Links */
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* Lists */
+
+ul{
+    list-style:none;
+}
+
+/* Images */
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+/* Buttons */
+
+button{
+    cursor:pointer;
+    font-family:inherit;
+    border:none;
+    transition:.25s;
+}
+
+/* ==========================================
+   Navigation
+========================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:75px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 60px;
+
+    background:rgba(8,12,18,.90);
+
+    backdrop-filter:blur(15px);
+
+    z-index:999;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#4ea8ff;
+
+}
+
+.logo i{
+
+    color:#2196f3;
+
+    font-size:34px;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+.navbar a{
+
+    font-size:17px;
+
+    transition:.25s;
+
+    font-weight:500;
+
+}
+
+.navbar a:hover{
+
+    color:#4ea8ff;
+
+}
+
+/* ==========================================
+   Hero
+========================================== */
+
+.hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.75)
+    ),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+.hero-content{
+
+    width:900px;
+
+    max-width:90%;
+
+    z-index:2;
+
+}
+
+.hero h1{
+
+    font-size:65px;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+    line-height:1.1;
+
+}
+
+.hero p{
+
+    font-size:22px;
+
+    color:#d4d4d4;
+
+    margin-bottom:40px;
+
+    line-height:1.6;
+
+}
+
+.heroButton{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:18px 45px;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.heroButton:hover{
+
+    transform:translateY(-4px);
+
+    background:#3b82f6;
+
+    box-shadow:0 15px 40px rgba(37,99,235,.35);
+
+}
+
+/* ==========================================
+   Sections
+========================================== */
+
+section{
+
+    padding:90px 8%;
+
+}
+
+section h2{
+
+    font-size:40px;
+
+    margin-bottom:45px;
+
+    text-align:center;
+
+}
+
+/* ==========================================
+   Movie Grid
+========================================== */
+
+.movieGrid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:35px;
+
+}
+
+.movieCard{
+
+    background:#161b22;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.25);
+
+}
+
+.movieCard:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 25px 50px rgba(37,99,235,.25);
+
+}
+
+.movieCard img{
+
+    height:380px;
+
+    width:100%;
+
+    object-fit:cover;
+
+}
+
+.movieCard h3{
+
+    padding:18px 20px 5px;
+
+    font-size:24px;
+
+}
+
+.movieCard p{
+
+    padding:0 20px;
+
+    color:#b8b8b8;
+
+}
+
+.movieCard button{
+
+    margin:20px;
+
+    width:calc(100% - 40px);
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+}
+
+.movieCard button:hover{
+
+    background:#3b82f6;
+
+}
+
+/* ==========================================
+   Feature Boxes
+========================================== */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.features div{
+
+    background:#161b22;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.features div:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.features i{
+
+    font-size:50px;
+
+    color:#3b82f6;
+
+    margin-bottom:20px;
+
+}
+
+.features h3{
+
+    margin-bottom:12px;
+
+    font-size:24px;
+
+}
+
+.features p{
+
+    color:#bfbfbf;
+
+}
+
+/* ==========================================
+   Footer
+========================================== */
+
+footer{
+
+    background:#080b10;
+
+    padding:50px 8%;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+    color:#cfcfcf;
+
+}
+
+footer h3{
+
+    color:white;
+
+    font-size:26px;
+
+    margin-bottom:15px;
+
+}
+
+footer p{
+
+    line-height:1.7;
+
+}
+
+footer a{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    transition:.25s;
+
+}
+
+footer a:hover{
+
+    color:#3b82f6;
+
+}
+
+
+/* ==========================================
+   Movie Page
+========================================== */
+
+.movieBanner{
+
+    min-height:400px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.8)
+    ),
+    url("../assets/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+.movieBanner h1{
+
+    font-size:55px;
+
+}
+
+
+/* ==========================================
+   Booking System
+========================================== */
+
+.booking-container{
+
+    padding-top:120px;
+
+    min-height:100vh;
+
+}
+
+
+.booking-panel{
+
+    background:#161b22;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+
+.screen{
+
+    height:60px;
+
+    background:white;
+
+    color:#111;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    margin:40px auto;
+
+    max-width:600px;
+
+    transform:perspective(300px)
+    rotateX(-25deg);
+
+}
+
+
+/* Seat Grid */
+
+.seat-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,70px);
+
+    gap:15px;
+
+    justify-content:center;
+
+}
+
+
+.seat{
+
+    height:70px;
+
+    width:70px;
+
+    background:#374151;
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.seat:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+.seat.selected{
+
+    background:#22c55e;
+
+}
+
+
+.seat.booked{
+
+    background:#ef4444;
+
+    cursor:not-allowed;
+
+}
+
+
+.seat.vip{
+
+    background:#f59e0b;
+
+}
+
+
+/* Seat Legend */
+
+.legend{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin:30px 0;
+
+}
+
+
+.legend-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.legend-box{
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:5px;
+
+}
+
+
+/* ==========================================
+   Admin Dashboard
+========================================== */
+
+
+.admin-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+    background:#0d1117;
+
+}
+
+
+.sidebar{
+
+    width:260px;
+
+    background:#080b10;
+
+    padding:30px 20px;
+
+}
+
+
+.sidebar h2{
+
+    font-size:25px;
+
+    color:#3b82f6;
+
+    margin-bottom:35px;
+
+}
+
+
+.sidebar a{
+
+    display:block;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+    transition:.25s;
+
+}
+
+
+.sidebar a:hover{
+
+    background:#2563eb;
+
+}
+
+
+
+.dashboard{
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+
+.stat-card{
+
+    background:#161b22;
+
+    padding:30px;
+
+    border-radius:18px;
+
+}
+
+
+.stat-card i{
+
+    font-size:35px;
+
+    color:#3b82f6;
+
+}
+
+
+.stat-card h3{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    color:#aaa;
+
+}
+
+
+.stat-card span{
+
+    display:block;
+
+    font-size:35px;
+
+    font-weight:700;
+
+    margin-top:10px;
+
+}
+
+
+
+/* ==========================================
+   Tables
+========================================== */
+
+
+.table-container{
+
+    overflow-x:auto;
+
+    margin-top:30px;
+
+}
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#161b22;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+
+th{
+
+    background:#2563eb;
+
+    padding:15px;
+
+    text-align:left;
+
+}
+
+
+td{
+
+    padding:15px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+tr:hover{
+
+    background:#1f2937;
+
+}
+
+
+
+/* ==========================================
+   Forms
+========================================== */
+
+
+input,
+select,
+textarea{
+
+    background:#111827;
+
+    color:white;
+
+    border:1px solid #374151;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    width:100%;
+
+    outline:none;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#2563eb;
+
+}
+
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+
+.primary-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:10px;
+
+}
+
+
+.primary-btn:hover{
+
+    background:#3b82f6;
+
+}
+
+
+
+/* ==========================================
+   Animations
+========================================== */
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+.movieCard,
+.features div,
+.stat-card{
+
+    animation:fadeUp .6s ease;
+
+}
+
+/* ==========================================
+   Responsive Design
+========================================== */
+
+@media(max-width:900px){
+
+    .navbar{
+
+        padding:0 25px;
+
+    }
+
+
+    .logo{
+
+        font-size:22px;
+
+    }
+
+
+    .navbar ul{
+
+        gap:15px;
+
+    }
+
+
+    .navbar a{
+
+        font-size:14px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:45px;
+
+    }
+
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
+
+    section{
+
+        padding:70px 5%;
+
+    }
+
+
+    section h2{
+
+        font-size:32px;
+
+    }
+
+
+    .admin-layout{
+
+        flex-direction:column;
+
+    }
+
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+
+    .dashboard{
+
+        padding:25px;
+
+    }
+
+}
+
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:600px){
+
+
+    .navbar{
+
+        height:auto;
+
+        padding:20px;
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+
+    .navbar ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+
+    .hero{
+
+        height:90vh;
+
+    }
+
+
+    .hero h1{
+
+        font-size:34px;
+
+    }
+
+
+    .hero p{
+
+        font-size:16px;
+
+    }
+
+
+    .heroButton{
+
+        padding:14px 30px;
+
+        font-size:16px;
+
+    }
+
+
+    .movieCard img{
+
+        height:330px;
+
+    }
+
+
+    .features div{
+
+        padding:25px;
+
+    }
+
+
+    .seat-grid{
+
+        grid-template-columns:
+        repeat(5,50px);
+
+        gap:10px;
+
+    }
+
+
+    .seat{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:12px;
+
+    }
+
+
+    .screen{
+
+        width:90%;
+
+        height:45px;
+
+    }
+
+
+    .legend{
+
+        flex-wrap:wrap;
+
+    }
+
+
+}
+
+
+/* ==========================================
+   Ticket Design
+========================================== */
+
+
+.ticket{
+
+    max-width:500px;
+
+    margin:120px auto;
+
+    background:white;
+
+    color:#111;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.ticket-header{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+.ticket-body{
+
+    padding:30px;
+
+}
+
+
+.ticket-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-bottom:1px dashed #ccc;
+
+}
+
+
+.qrcode{
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:25px;
+
+}
+
+
+/* ==========================================
+   Admin Login
+========================================== */
+
+
+.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.8),
+    rgba(0,0,0,.8)
+    ),
+
+    url("../assets/hero.jpg");
+
+    background-size:cover;
+
+}
+
+
+.login-box{
+
+    width:400px;
+
+    max-width:90%;
+
+    background:#161b22;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+}
+
+
+.login-box h1{
+
+    margin-bottom:30px;
+
+}
+
+
+.login-box button{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+
+
+/* ==========================================
+   Admin Panels
+========================================== */
+
+
+.admin-panel{
+
+    background:#161b22;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-top:30px;
+
+}
+
+
+.admin-panel h2{
+
+    text-align:left;
+
+    margin-bottom:25px;
+
+}
+
+
+.action-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.edit-btn{
+
+    background:#22c55e;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    color:white;
+
+}
+
+
+.delete-btn{
+
+    background:#ef4444;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   Notifications
+========================================== */
+
+
+.notification{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    background:#2563eb;
+
+    padding:20px 30px;
+
+    border-radius:12px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+    animation:fadeUp .3s ease;
+
+}
+
+
+/* ==========================================
+   Utility Classes
+========================================== */
+
+
+.text-center{
+
+    text-align:center;
+
+}
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+.flex{
+
+    display:flex;
+
+}
+
+
+.center{
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+
+.mt-40{
+
+    margin-top:40px;
+
+}
