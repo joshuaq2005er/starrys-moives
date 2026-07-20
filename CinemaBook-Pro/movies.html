@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movies | CinemaBook Pro</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+🎬 CinemaBook Pro
+
+</div>
+
+
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+
+<li>
+<a href="movies.html">
+Movies
+</a>
+</li>
+
+
+<li>
+<a href="admin/login.html">
+Admin
+</a>
+</li>
+
+
+</ul>
+
+
+</nav>
+
+
+
+
+<section class="movieBanner">
+
+
+<div>
+
+<h1>
+Now Showing
+</h1>
+
+
+<p>
+Choose your movie and book your seats.
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+🎥 All Movies
+</h2>
+
+
+
+<input 
+id="searchMovie"
+placeholder="Search movies..."
+onkeyup="searchMovies()">
+
+
+
+
+
+<div class="movieGrid" id="movieList">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<footer>
+
+
+<h3>
+CinemaBook Pro
+</h3>
+
+
+<p>
+Online movie booking system.
+</p>
+
+
+</footer>
+
+
+
+
+
+<script src="js/app.js"></script>
+
+
+
+<script>
+
+
+function loadMovies(){
+
+
+const container =
+document.getElementById(
+"movieList"
+);
+
+
+
+container.innerHTML="";
+
+
+
+getMovies().forEach(movie=>{
+
+
+container.innerHTML += `
+
+
+<div class="movieCard"
+data-name="${movie.name.toLowerCase()}">
+
+
+<img src="${movie.poster}">
+
+
+<h3>
+${movie.name}
+</h3>
+
+
+<p>
+${movie.genre}
+•
+${movie.runtime}
+</p>
+
+
+<p>
+${movie.rating}
+</p>
+
+
+<button onclick="openMovie('${movie.name}')">
+
+Book Now
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+}
+
+
+
+
+function searchMovies(){
+
+
+let value =
+document.getElementById(
+"searchMovie"
+)
+.value
+.toLowerCase();
+
+
+
+document
+.querySelectorAll("#movieList .movieCard")
+.forEach(card=>{
+
+
+if(card.dataset.name.includes(value)){
+
+
+card.style.display="block";
+
+
+}
+
+else{
+
+
+card.style.display="none";
+
+
+}
+
+
+});
+
+
+}
+
+
+
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+initializeDatabase();
+
+loadMovies();
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
