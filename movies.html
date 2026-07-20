@@ -7,256 +7,204 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Movies | CinemaBook Pro</title>
+<title>Movie Management | CinemaBook Pro</title>
 
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 
-<body>
+<body onload="checkAdmin();loadAdminMovies();">
 
 
-<nav class="navbar">
+<div class="admin-layout">
 
 
-<div class="logo">
+<div class="sidebar">
 
-<i class="fa-solid fa-film"></i>
+<h2>
+🎬 CinemaBook
+</h2>
 
-CinemaBook Pro
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+
+<a href="movies.html">
+Movies
+</a>
+
+
+<a href="bookings.html">
+Bookings
+</a>
+
+
+<a href="theaters.html">
+Theaters
+</a>
+
+
+<a href="concessions.html">
+Food
+</a>
+
+
+<a href="settings.html">
+Settings
+</a>
+
+
+<a onclick="logoutAdmin()">
+Logout
+</a>
+
 
 </div>
 
 
 
-<ul>
 
-<li>
-<a href="index.html">
-Home
-</a>
-</li>
+<div class="dashboard">
 
-
-<li>
-<a href="movies.html">
-Movies
-</a>
-</li>
-
-
-<li>
-<a href="history.html">
-My Tickets
-</a>
-</li>
-
-
-<li>
-<a href="admin/login.html">
-Admin
-</a>
-</li>
-
-</ul>
-
-
-</nav>
-
-
-
-<section class="movieBanner">
-
-
-<div>
 
 <h1>
-Now Showing
+🎥 Movie Management
 </h1>
 
-<p>
-Choose your movie and book your seats.
-</p>
-
-</div>
 
 
-</section>
-
-
-
-
-<section>
+<div class="admin-panel">
 
 
 <h2>
-🎬 All Movies
+Add Movie
 </h2>
 
 
 
-<div class="movieSearch">
+<div class="form-group">
+
+<input id="movieName"
+placeholder="Movie Name">
+
+</div>
 
 
-<input 
-id="searchMovie"
-placeholder="Search movies..."
-onkeyup="searchMovies()">
+
+<div class="form-group">
+
+<input id="movieGenre"
+placeholder="Genre">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="movieRuntime"
+placeholder="Runtime (Example: 2h 10m)">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="movieRating"
+placeholder="Rating (PG-13)">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="moviePoster"
+placeholder="Poster URL">
+
+</div>
+
+
+
+<button class="primary-btn"
+onclick="addMovie()">
+
+Add Movie
+
+</button>
 
 
 </div>
 
 
 
-<div 
-class="movieGrid"
-id="movieList">
-
-</div>
 
 
-
-</section>
-
-
-
-
-<section>
+<div class="admin-panel">
 
 
 <h2>
-Coming Soon
+Current Movies
 </h2>
 
 
-<div class="movieGrid">
+<div id="movieTable">
 
 
-<div class="movieCard">
-
-
-<img src="https://placehold.co/350x500?text=Avatar+4">
-
-
-<h3>
-Avatar 4
-</h3>
-
-
-<p>
-Coming December 2026
-</p>
+</div>
 
 
 </div>
 
 
 
-<div class="movieCard">
 
-
-<img src="https://placehold.co/350x500?text=Spider-Man">
-
-
-<h3>
-Spider-Man
-</h3>
-
-
-<p>
-Coming Soon
-</p>
+</div>
 
 
 </div>
 
 
 
-</div>
+<script src="../js/app.js"></script>
 
+<script src="admin.js"></script>
 
-</section>
-
-
-
-<footer>
-
-
-<div>
-
-<h3>
-CinemaBook Pro
-</h3>
-
-
-<p>
-Your online movie booking experience.
-</p>
-
-</div>
-
-
-
-<div>
-
-<a href="index.html">
-Home
-</a>
-
-<a href="movies.html">
-Movies
-</a>
-
-<a href="admin/login.html">
-Admin
-</a>
-
-</div>
-
-
-</footer>
-
-
-
-<script src="js/app.js"></script>
 
 
 <script>
 
 
-function loadMovies(){
+function loadAdminMovies(){
 
 
-const container =
-document.getElementById(
-"movieList"
-);
-
-
-
-const movies =
+let movies =
 getMovies();
 
 
 
-container.innerHTML="";
+let box =
+document.getElementById(
+"movieTable"
+);
+
+
+
+box.innerHTML="";
 
 
 
 movies.forEach(movie=>{
 
 
-container.innerHTML += `
+box.innerHTML += `
 
 
-<div class="movieCard"
-data-name="${movie.name.toLowerCase()}">
+<div class="movieCard">
 
 
 <img src="${movie.poster}">
@@ -271,7 +219,7 @@ ${movie.name}
 
 ${movie.genre}
 
-•
+-
 
 ${movie.runtime}
 
@@ -280,16 +228,16 @@ ${movie.runtime}
 
 <p>
 
-Rating:
 ${movie.rating}
 
 </p>
 
 
 
-<button onclick="openMovie('${movie.name}')">
+<button class="delete-btn"
+onclick="deleteMovie(${movie.id})">
 
-Book Now
+Delete
 
 </button>
 
@@ -297,11 +245,9 @@ Book Now
 </div>
 
 
-
 `;
 
 
-
 });
 
 
@@ -309,60 +255,138 @@ Book Now
 
 
 
-function searchMovies(){
 
 
-let value =
-document
-.getElementById(
-"searchMovie"
-)
-.value
-.toLowerCase();
+function addMovie(){
 
 
 
-document
-.querySelectorAll(
-".movieCard"
-)
-.forEach(card=>{
-
-
-let name =
-card.dataset.name;
+let movies =
+getMovies();
 
 
 
-if(name.includes(value)){
+let movie={
 
 
-card.style.display="block";
+id:
+Date.now(),
 
 
-}
-
-else{
-
-
-card.style.display="none";
+name:
+document.getElementById(
+"movieName"
+).value,
 
 
-}
+genre:
+document.getElementById(
+"movieGenre"
+).value,
 
 
-});
+runtime:
+document.getElementById(
+"movieRuntime"
+).value,
+
+
+rating:
+document.getElementById(
+"movieRating"
+).value,
+
+
+poster:
+document.getElementById(
+"moviePoster"
+).value
 
 
 
-}
+};
 
 
 
-document.addEventListener(
-"DOMContentLoaded",
-loadMovies
+if(!movie.name){
+
+alert(
+"Enter movie name"
 );
+
+return;
+
+}
+
+
+
+movies.push(movie);
+
+
+
+localStorage.setItem(
+
+"movies",
+
+JSON.stringify(movies)
+
+);
+
+
+
+alert(
+"Movie Added"
+);
+
+
+
+loadAdminMovies();
+
+
+
+}
+
+
+
+
+
+function deleteMovie(id){
+
+
+if(!confirm(
+"Delete this movie?"
+))
+return;
+
+
+
+let movies =
+getMovies();
+
+
+
+movies =
+movies.filter(
+m=>m.id!==id
+);
+
+
+
+localStorage.setItem(
+
+"movies",
+
+JSON.stringify(movies)
+
+);
+
+
+
+loadAdminMovies();
+
+
+
+}
 
 
 
